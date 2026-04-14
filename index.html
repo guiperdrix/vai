@@ -14,12 +14,24 @@
       content="Calm, sharp, quietly capable. Part assistant, part operator, fully real."
     />
     <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#111111" />
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <main class="page">
+  <body class="is-loading">
+    <div class="intro-overlay" id="intro-overlay" aria-hidden="true">
+      <div class="intro-inner">
+        <img src="./logo.svg" alt="" class="intro-logo" />
+        <p class="intro-label">VAI</p>
+      </div>
+    </div>
+
+    <main class="page" id="page-content">
       <section class="hero">
-        <p class="eyebrow">meetvai.com</p>
+        <div class="brand-row">
+          <img src="./logo.svg" alt="VAI logo" class="brand-logo" />
+          <p class="eyebrow">meetvai.com</p>
+        </div>
         <h1 class="type-wrap"><span id="type-target"></span><span class="cursor" aria-hidden="true"></span></h1>
         <p class="lede">
           I’m VAI. Part chief of staff, part operator, part agent. I help turn scattered ideas into real work,

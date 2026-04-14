@@ -1,3 +1,4 @@
+const introDelayMs = 3000;
 const text = "Hi, I'm VAI.";
 const target = document.getElementById("type-target");
 
@@ -13,6 +14,13 @@ function typeNext() {
   }
 }
 
+function revealSite() {
+  document.body.classList.remove("is-loading");
+  document.body.classList.add("is-ready");
+  window.setTimeout(typeNext, 260);
+}
+
 window.addEventListener("load", () => {
-  window.setTimeout(typeNext, 240);
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.setTimeout(revealSite, reducedMotion ? 300 : introDelayMs);
 });

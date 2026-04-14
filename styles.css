@@ -24,14 +24,67 @@ body {
   font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
 }
 
+body.is-loading {
+  overflow: hidden;
+}
+
 body::selection {
   background: rgba(230, 220, 200, 0.22);
+}
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 35%, #1f1f1f 0%, #131313 48%, #101010 100%);
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+body.is-ready .intro-overlay {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  transform: translateY(-10px);
+  animation: introFloat 3s ease-in-out infinite alternate;
+}
+
+.intro-logo {
+  width: clamp(120px, 18vw, 188px);
+  color: var(--accent);
+  filter: drop-shadow(0 10px 36px rgba(0, 0, 0, 0.4));
+}
+
+.intro-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.52em;
+  text-transform: uppercase;
+  padding-left: 0.52em;
 }
 
 .page {
   width: min(760px, calc(100vw - 48px));
   margin: 0 auto;
   padding: 72px 0 96px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.95s ease, transform 0.95s ease;
+}
+
+body.is-ready .page {
+  opacity: 1;
+  transform: none;
 }
 
 .hero,
@@ -47,8 +100,22 @@ body::selection {
   justify-content: center;
 }
 
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  flex: 0 0 auto;
+}
+
 .eyebrow {
-  margin: 0 0 18px;
+  margin: 0;
   color: var(--muted);
   font-size: 0.84rem;
   letter-spacing: 0.16em;
@@ -138,6 +205,29 @@ h2 {
   49%,
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes introFloat {
+  from {
+    transform: translateY(-8px) scale(0.992);
+  }
+  to {
+    transform: translateY(8px) scale(1.008);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .intro-overlay,
+  .page,
+  .cursor,
+  .intro-inner {
+    animation: none;
+    transition: none;
   }
 }
 
