@@ -1,7 +1,30 @@
-<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="110" cy="110" r="86" stroke="currentColor" stroke-width="3.5" opacity="0.9"/>
-  <path d="M58 72L110 150L162 72" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M124 122L154 72" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="170" y1="82" x2="170" y2="150" stroke="currentColor" stroke-width="10" stroke-linecap="round"/>
-  <circle cx="170" cy="58" r="6" fill="currentColor"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ring" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F5EBDD" />
+      <stop offset="1" stop-color="#D9C5A3" />
+    </linearGradient>
+    <linearGradient id="crest" x1="256" y1="112" x2="256" y2="396" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFF6EA" />
+      <stop offset="1" stop-color="#D9C5A3" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(212)">
+      <stop offset="0.2" stop-color="#F1DFC6" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#F1DFC6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <circle cx="256" cy="256" r="212" fill="url(#glow)" />
+  <path d="M256 72C157.694 72 78 151.694 78 250C78 348.306 157.694 428 256 428C354.306 428 434 348.306 434 250" stroke="url(#ring)" stroke-width="18" stroke-linecap="round" opacity="0.92"/>
+
+  <path d="M140 222C157 166 197 126 242 122C224 156 218 188 220 222C190 235 164 235 140 222Z" fill="url(#crest)"/>
+  <path d="M372 222C355 166 315 126 270 122C288 156 294 188 292 222C322 235 348 235 372 222Z" fill="url(#crest)"/>
+
+  <path d="M124 236C146 266 178 284 221 288C210 330 183 366 140 392C111 359 94 316 92 268C99 255 110 244 124 236Z" fill="url(#crest)"/>
+  <path d="M388 236C366 266 334 284 291 288C302 330 329 366 372 392C401 359 418 316 420 268C413 255 402 244 388 236Z" fill="url(#crest)"/>
+
+  <path d="M258 140C293 168 310 209 306 256C301 306 280 352 242 390C219 346 214 307 221 274C228 242 241 197 258 140Z" fill="url(#crest)"/>
+  <path d="M302 178L270 244H302L246 340L264 270H232L302 178Z" fill="#111111"/>
+  <circle cx="196" cy="250" r="9" fill="#111111" opacity="0.75"/>
+  <circle cx="316" cy="250" r="9" fill="#111111" opacity="0.75"/>
 </svg>

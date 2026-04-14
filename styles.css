@@ -59,9 +59,9 @@ body.is-ready .intro-overlay {
 }
 
 .intro-logo {
-  width: clamp(120px, 18vw, 188px);
+  width: clamp(138px, 20vw, 210px);
   color: var(--accent);
-  filter: drop-shadow(0 10px 36px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 12px 42px rgba(0, 0, 0, 0.42));
 }
 
 .intro-label {
@@ -103,13 +103,13 @@ body.is-ready .page {
 .brand-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   margin-bottom: 18px;
 }
 
 .brand-logo {
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   color: var(--accent);
   flex: 0 0 auto;
 }
