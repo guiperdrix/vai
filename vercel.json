@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.meetvai.com"
+        }
+      ],
+      "destination": "https://meetvai.com/$1",
+      "permanent": true
+    }
+  ]
+}
