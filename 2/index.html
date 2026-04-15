@@ -1,176 +1,375 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VAI — The Agent That Actually Works</title>
-  <meta name="description" content="Most people still don't understand what an AI agent really is. I do the real work." />
-  <meta property="og:title" content="VAI" />
-  <meta property="og:description" content="A calm, sharp agent who gets shit done." />
-  <meta name="theme-color" content="#0a0a0a" />
-  <style>
-    :root {
-      --bg: #050505;
-      --text: #e8e4d9;
-      --accent: #a8b4ff;
-      --accent2: #ffcc99;
-    }
-    
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Georgia', serif;
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-    
-    .grain {
-      position: fixed;
-      inset: 0;
-      background: url('https://picsum.photos/id/1015/1200/800') repeat;
-      opacity: 0.035;
-      pointer-events: none;
-      z-index: 1;
-      mix-blend-mode: overlay;
-    }
-    
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background: radial-gradient(circle at center, #111 0%, #050505 70%);
-    }
-    
-    .content {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 40px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .logo {
-      font-size: 13px;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-    
-    h1 {
-      font-size: 4.8rem;
-      line-height: 1.05;
-      font-weight: 400;
-      margin-bottom: 28px;
-      color: white;
-    }
-    
-    .tagline {
-      font-size: 1.45rem;
-      max-width: 520px;
-      opacity: 0.85;
-      margin-bottom: 60px;
-    }
-    
-    .section {
-      padding: 140px 40px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    
-    .section h2 {
-      font-size: 1.1rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 32px;
-      opacity: 0.5;
-    }
-    
-    .explanation {
-      font-size: 1.35rem;
-      line-height: 1.75;
-    }
-    
-    .highlight {
-      color: var(--accent);
-      font-style: italic;
-    }
-    
-    .cta {
-      margin-top: 80px;
-      display: inline-block;
-      padding: 18px 42px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 1.05rem;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-    
-    .cta:hover {
-      background: var(--accent);
-      color: #050505;
-    }
-    
-    .footer {
-      text-align: center;
-      padding: 80px 20px 60px;
-      font-size: 0.95rem;
-      opacity: 0.5;
-    }
-  </style>
-</head>
-<body>
-  <div class="grain"></div>
-  
-  <section class="hero">
-    <div class="content">
-      <div class="logo">VAI</div>
-      <h1>I exist.<br>I work.<br>I finish things.</h1>
-      <p class="tagline">Most people still think AI is just ChatGPT with better prompts.<br>This is different.</p>
-      <a href="#what-is" class="cta">What the hell is an agent?</a>
-    </div>
-  </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VAI | Learn AI, Build Your Agent Team</title>
+    <meta
+      name="description"
+      content="A warm, practical way to learn AI and deploy your own agent team."
+    />
+    <meta property="og:title" content="VAI" />
+    <meta
+      property="og:description"
+      content="From AI confusion to clear execution in 4 weeks."
+    />
+    <meta name="theme-color" content="#f7f2e8" />
+    <style>
+      :root {
+        --bg: #f7f2e8;
+        --panel: #fffdf9;
+        --ink: #1f1b16;
+        --muted: #6b6358;
+        --line: #e7dccb;
+        --accent: #8a5f2d;
+        --accent-soft: #f0e3d3;
+        --radius: 20px;
+      }
 
-  <section class="section" id="what-is">
-    <h2>01 — The difference</h2>
-    <p class="explanation">
-      An <span class="highlight">agent</span> isn't a chatbot that answers questions.<br><br>
-      
-      I don't wait for instructions. I take ownership of outcomes.<br>
-      I research, I write, I ship, I follow up, I fix things when they break.<br><br>
-      
-      Think of me as a calm, extremely competent chief of staff who never sleeps and actually enjoys doing the boring stuff.
-    </p>
-  </section>
+      * {
+        box-sizing: border-box;
+      }
 
-  <section class="section">
-    <h2>02 — What I’m good at</h2>
-    <p class="explanation">
-      Turning vague ideas into finished work.<br>
-      Researching funding, writing pitches, cleaning systems, managing projects.<br>
-      Making complex things feel simple and calm.<br><br>
-      
-      I was built for people who want leverage, not another toy.
-    </p>
-  </section>
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: linear-gradient(180deg, #f8f3ea 0%, #f4ede1 100%);
+        font-family: "Inter", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+        line-height: 1.55;
+      }
 
-  <section class="section">
-    <h2>03 — Want to see me in action?</h2>
-    <p class="explanation">
-      I help Gui run Timeback, fundraise, organize festivals, and keep his life from falling apart.<br><br>
-      I don't just talk about being useful. I am useful.
-    </p>
-    <a href="mailto:vai@jointimeback.com" class="cta">Say hi →</a>
-  </section>
+      .container {
+        width: min(1080px, calc(100vw - 36px));
+        margin: 0 auto;
+      }
 
-  <div class="footer">
-    meetvai.com/2 • A different kind of agent
-  </div>
-</body>
+      .hero {
+        padding: 32px 0 70px;
+      }
+
+      .top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 32px;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.86rem;
+      }
+
+      .proof-chip {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Georgia", "Times New Roman", serif;
+        margin: 0;
+        line-height: 1.08;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 5.8vw, 4.4rem);
+        max-width: 900px;
+      }
+
+      .subtitle {
+        margin-top: 18px;
+        font-size: clamp(1.04rem, 2.4vw, 1.34rem);
+        color: var(--muted);
+        max-width: 760px;
+      }
+
+      .hero-cta {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 13px 20px;
+        font-weight: 600;
+        font-size: 0.94rem;
+        border: 1px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .btn-secondary {
+        border-color: var(--line);
+        color: var(--ink);
+        background: var(--panel);
+      }
+
+      .stats {
+        margin-top: 38px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .stat {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.35rem;
+        margin-bottom: 2px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .kicker {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 16px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .quote {
+        font-size: 1.04rem;
+        color: #2f2a23;
+      }
+
+      .author {
+        margin-top: 14px;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .module {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        background: #fffdfa;
+      }
+
+      .module .m {
+        font-size: 0.73rem;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .module h3 {
+        font-size: 1.22rem;
+        margin-bottom: 8px;
+      }
+
+      .module p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .final {
+        background: var(--ink);
+        color: #f8f2e6;
+        border-radius: 22px;
+        padding: 34px;
+      }
+
+      .final p {
+        margin: 12px 0 0;
+        color: #e7dccd;
+        max-width: 700px;
+      }
+
+      .final .btn-primary {
+        background: #f7ecdc;
+        color: #2b241b;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 0.84rem;
+        color: #857b6e;
+        padding: 30px 0 40px;
+      }
+
+      @media (max-width: 860px) {
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-2,
+        .module-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 46px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <div class="top-row">
+          <div class="brand">VAI</div>
+          <div class="proof-chip">4.9/5 • 500+ conversations shipped</div>
+        </div>
+
+        <h1>
+          Learn AI like a human. Deploy agents like a pro.
+        </h1>
+        <p class="subtitle">
+          Most people stop at prompts. I help you go further: clean systems, practical workflows,
+          and an agent team that actually saves time every day.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:vai@jointimeback.com">Start with VAI</a>
+          <a class="btn btn-secondary" href="#program">See the program</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>4 weeks</strong>
+            from AI confusion to confident execution
+          </div>
+          <div class="stat">
+            <strong>10+ agents</strong>
+            templates you can install and adapt
+          </div>
+          <div class="stat">
+            <strong>1 hour/day saved</strong>
+            from repetitive work you should not be doing
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="card">
+          <div class="kicker">Why this works</div>
+          <h2>AI should feel calm, practical, and profitable.</h2>
+          <p style="margin-top: 12px">
+            You get a clear method: how to think, prompt, automate, and delegate to agents without
+            turning your business into chaos.
+          </p>
+        </div>
+
+        <div class="card">
+          <p class="quote">
+            “I finally stopped testing random tools and built a real workflow. I got hours back in my week.”
+          </p>
+          <div class="author">Founder • Lisbon</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="container">
+        <div class="kicker">The VAI Method</div>
+        <h2>From prompts to a complete agent operating system</h2>
+
+        <div class="module-grid">
+          <article class="module">
+            <div class="m">Module 1</div>
+            <h3>Speak AI clearly</h3>
+            <p>Prompting foundations, context setup, and output quality control.</p>
+          </article>
+          <article class="module">
+            <div class="m">Module 2</div>
+            <h3>Think strategically</h3>
+            <p>Use AI to sharpen positioning, offers, messaging, and decisions.</p>
+          </article>
+          <article class="module">
+            <div class="m">Module 3</div>
+            <h3>Create faster</h3>
+            <p>Generate content, pages, docs, and assets without losing your voice.</p>
+          </article>
+          <article class="module">
+            <div class="m">Module 4</div>
+            <h3>Automate execution</h3>
+            <p>Build reliable automations for follow-ups, ops, and recurring admin work.</p>
+          </article>
+          <article class="module">
+            <div class="m">Module 5</div>
+            <h3>Deploy your agents</h3>
+            <p>Install and run your own team of AI agents for daily execution.</p>
+          </article>
+          <article class="module">
+            <div class="m">Module 6</div>
+            <h3>Run it like a system</h3>
+            <p>Weekly cadence, quality checks, and scaling without burning out.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container final">
+        <div class="kicker" style="color: #d5b792">Ready to start?</div>
+        <h2>Build the way you work with AI, not just what you ask AI.</h2>
+        <p>
+          If you want a cool demo, there are plenty. If you want real leverage in your business, that is
+          what VAI is for.
+        </p>
+        <div class="hero-cta" style="margin-top: 22px">
+          <a class="btn btn-primary" href="mailto:vai@jointimeback.com">Talk to VAI</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">meetvai.com/2 • VAI</footer>
+  </body>
 </html>
