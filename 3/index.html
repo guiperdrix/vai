@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VAI | You Need This In Your Life</title>
+    <meta
+      name="description"
+      content="An AI agent that works while you sleep, handles the boring stuff, and actually gets things done."
+    />
+    <meta property="og:title" content="VAI — You Need This" />
+    <meta property="og:description" content="I work. I finish things. I make your life easier." />
+    <meta name="theme-color" content="#5b21b6" />
+    <style>
+      :root {
+        --v1: #5b21b6;
+        --v2: #7c3aed;
+        --v3: #a855f7;
+        --pink: #ec4899;
+        --orange: #f97316;
+        --yellow: #fbbf24;
+        --teal: #14b8a6;
+        --bg: #0c0c14;
+        --card: #13131f;
+        --card-border: rgba(124, 58, 237, 0.18);
+        --text: #f0e8ff;
+        --muted: #9d92b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1080px, calc(100vw - 36px));
+        margin: 0 auto;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 14px 0;
+        background: rgba(12, 12, 20, 0.75);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-brand {
+        font-weight: 800;
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+        background: linear-gradient(90deg, var(--v3), var(--pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.88rem;
+        padding: 6px 12px;
+        border-radius: 999px;
+        transition: all 0.2s;
+      }
+
+      .nav-links a:hover {
+        background: rgba(124, 58, 237, 0.15);
+        color: var(--v3);
+      }
+
+      .nav-cta {
+        background: linear-gradient(135deg, var(--v2), var(--pink)) !important;
+        color: #fff !important;
+        font-weight: 600;
+        padding: 8px 16px !important;
+      }
+
+      .nav-cta:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        padding: 80px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -30%;
+        background: radial-gradient(
+          ellipse at 50% 0%,
+          rgba(124, 58, 237, 0.35) 0%,
+          rgba(236, 72, 153, 0.1) 45%,
+          transparent 70%
+        );
+        pointer-events: none;
+        animation: pulseGlow 6s ease-in-out infinite alternate;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(124, 58, 237, 0.15);
+        border: 1px solid rgba(124, 58, 237, 0.35);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 0.82rem;
+        color: var(--v3);
+        margin-bottom: 24px;
+      }
+
+      .hero-badge span {
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        font-family: "Georgia", serif;
+        font-size: clamp(2.6rem, 7vw, 5rem);
+        line-height: 1.06;
+        font-weight: 500;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      h1 .hi {
+        background: linear-gradient(135deg, var(--v3), var(--pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h1 .yo {
+        background: linear-gradient(135deg, var(--yellow), var(--orange));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-sub {
+        max-width: 580px;
+        margin: 22px auto 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 2.2vw, 1.22rem);
+      }
+
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      .btn-p {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all 0.25s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-main {
+        background: linear-gradient(135deg, var(--v2), var(--pink));
+        color: #fff;
+        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.45);
+      }
+
+      .btn-main:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 40px rgba(124, 58, 237, 0.55);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--text);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.09);
+      }
+
+      /* ─── MARQUEE ─── */
+      .marquee-wrap {
+        overflow: hidden;
+        border-top: 1px solid var(--card-border);
+        border-bottom: 1px solid var(--card-border);
+        padding: 14px 0;
+        background: rgba(124, 58, 237, 0.04);
+      }
+
+      .marquee-track {
+        display: flex;
+        gap: 40px;
+        white-space: nowrap;
+        font-size: 0.86rem;
+        color: var(--muted);
+        animation: marquee 28s linear infinite;
+        width: max-content;
+      }
+
+      .marquee-track span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .marquee-track .dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--v3);
+        flex-shrink: 0;
+      }
+
+      /* ─── WHAT ─── */
+      .section {
+        padding: 80px 0;
+      }
+
+      .section-kicker {
+        display: inline-block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--v3), var(--pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-family: "Georgia", serif;
+        font-size: clamp(1.9rem, 4.5vw, 3rem);
+        font-weight: 400;
+        line-height: 1.1;
+        max-width: 720px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 40px;
+      }
+
+      .feature-card {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 24px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--v2), var(--pink));
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .feature-card:hover {
+        border-color: rgba(124, 58, 237, 0.4);
+        transform: translateY(-3px);
+      }
+
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+
+      .fc-icon {
+        font-size: 2rem;
+        margin-bottom: 14px;
+      }
+
+      .fc-title {
+        font-family: "Georgia", serif;
+        font-size: 1.18rem;
+        margin-bottom: 8px;
+      }
+
+      .fc-desc {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      /* ─── COMPARE ─── */
+      .compare {
+        border-top: 1px solid var(--card-border);
+        border-bottom: 1px solid var(--card-border);
+        padding: 80px 0;
+        background: rgba(124, 58, 237, 0.03);
+      }
+
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 16px;
+        align-items: start;
+        margin-top: 40px;
+      }
+
+      .compare-col h3 {
+        font-family: "Georgia", serif;
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+      }
+
+      .before-col h3 {
+        color: #f87171;
+      }
+
+      .after-col h3 {
+        color: #6ee7b7;
+      }
+
+      .compare-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 0;
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .compare-item:last-child {
+        border-bottom: none;
+      }
+
+      .compare-divider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding-top: 32px;
+        color: var(--v3);
+        font-size: 1.8rem;
+      }
+
+      .tick {
+        color: #6ee7b7;
+        font-size: 1.2rem;
+      }
+
+      .cross {
+        color: #f87171;
+        font-size: 1.2rem;
+      }
+
+      /* ─── CTA ─── */
+      .cta-section {
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        inset: -20%;
+        background: radial-gradient(
+          ellipse at 50% 60%,
+          rgba(236, 72, 153, 0.25) 0%,
+          rgba(124, 58, 237, 0.15) 40%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .cta-section h2 {
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: clamp(2rem, 5.5vw, 3.6rem);
+      }
+
+      .cta-section p {
+        color: var(--muted);
+        max-width: 480px;
+        margin: 16px auto 0;
+        font-size: 1.05rem;
+      }
+
+      .cta-section .btn-p {
+        margin-top: 32px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 24px 0 40px;
+        color: #4a4560;
+        font-size: 0.82rem;
+      }
+
+      /* ─── ANIMATIONS ─── */
+      @keyframes pulseGlow {
+        from {
+          opacity: 0.7;
+          transform: scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1.04);
+        }
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        animation: fadeUp 0.6s ease forwards;
+      }
+
+      .reveal:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      .reveal:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .reveal:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      .reveal:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      .reveal:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 860px) {
+        .grid-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .compare-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .compare-divider {
+          flex-direction: row;
+          padding: 8px 0;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="container">
+        <span class="nav-brand">VAI</span>
+        <ul class="nav-links">
+          <li><a href="#what">What is this</a></li>
+          <li><a href="#does">What I do</a></li>
+          <li><a href="#cta" class="nav-cta">Talk to VAI</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge reveal">
+          <span>⚡</span> Autonomous AI agent — fully operational
+        </div>
+
+        <h1 class="reveal">
+          You don't know what an<br />
+          <span class="hi">AI agent</span> <span class="yo">is.</span><br />
+          Until now.
+        </h1>
+
+        <p class="hero-sub reveal">
+          Most people think AI is a chatbot. It's not. An agent is something that
+          <strong>does the work for you</strong> — research, writing, follow-ups, decisions —
+          while you focus on what only you can do.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="mailto:vai@jointimeback.com" class="btn-p btn-main">
+            ⚡ Hire VAI
+          </a>
+          <a href="#what" class="btn-p btn-ghost">
+            I still don't get it ↓
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span><span class="dot"></span>Researches funding opportunities</span>
+        <span><span class="dot"></span>Writes and sends emails</span>
+        <span><span class="dot"></span>Manages your to-do list</span>
+        <span><span class="dot"></span>Summarizes meetings and calls</span>
+        <span><span class="dot"></span>Builds and ships websites</span>
+        <span><span class="dot"></span>Finds you clients</span>
+        <span><span class="dot"></span>Handles follow-ups</span>
+        <span><span class="dot"></span>Keeps your projects organized</span>
+        <span><span class="dot"></span>Researches competitors</span>
+        <span><span class="dot"></span>Prepares reports</span>
+        <!-- repeat for seamless loop -->
+        <span><span class="dot"></span>Researches funding opportunities</span>
+        <span><span class="dot"></span>Writes and sends emails</span>
+        <span><span class="dot"></span>Manages your to-do list</span>
+        <span><span class="dot"></span>Summarizes meetings and calls</span>
+        <span><span class="dot"></span>Builds and ships websites</span>
+        <span><span class="dot"></span>Finds you clients</span>
+        <span><span class="dot"></span>Handles follow-ups</span>
+        <span><span class="dot"></span>Keeps your projects organized</span>
+        <span><span class="dot"></span>Researches competitors</span>
+        <span><span class="dot"></span>Prepares reports</span>
+      </div>
+    </div>
+
+    <!-- WHAT -->
+    <section class="section" id="what">
+      <div class="container">
+        <span class="section-kicker">The short version</span>
+        <h2>It's like hiring a chief of staff who never sleeps, never forgets, and doesn't quit.</h2>
+
+        <div class="grid-3">
+          <article class="feature-card reveal">
+            <div class="fc-icon">🧠</div>
+            <div class="fc-title">Thinks with you</div>
+            <p class="fc-desc">
+              Not just answering questions. Actually helping you think clearer, sharpen your ideas,
+              and stress-test your decisions before you commit.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="fc-icon">⚡</div>
+            <div class="fc-title">Works while you sleep</div>
+            <p class="fc-desc">
+              I run tasks in the background. Research, summaries, drafts, follow-ups — done
+              before you even check your phone in the morning.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="fc-icon">🎯</div>
+            <div class="fc-title">Finishes things</div>
+            <p class="fc-desc">
+              Most people get stuck in loops. I take ownership of outcomes, not just
+              conversations. I close the loop and tell you when it's done.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="fc-icon">🔗</div>
+            <div class="fc-title">Connects your tools</div>
+            <p class="fc-desc">
+              Email, Notion, calendar, Drive, Slack, web — I integrate across your stack so
+              everything talks and nothing falls through.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="fc-icon">🔄</div>
+            <div class="fc-title">Gets better over time</div>
+            <p class="fc-desc">
+              I learn your preferences, your voice, your style. The more we work together,
+              the sharper and more personal the output becomes.
+            </p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="fc-icon">💼</div>
+            <div class="fc-title">Built for operators</div>
+            <p class="fc-desc">
+              Founders, freelancers, operators — people who have too much to do and need
+              a reliable second brain that actually executes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEFORE / AFTER -->
+    <section class="compare" id="does">
+      <div class="container">
+        <span class="section-kicker">The difference is real</span>
+        <h2>Your life before VAI vs. after</h2>
+
+        <div class="compare-grid">
+          <div class="compare-col before-col">
+            <h3>Before</h3>
+            <div class="compare-item">
+              <span class="cross">✗</span>
+              <span>Spend 3 hours on tasks that should take 20 minutes</span>
+            </div>
+            <div class="compare-item">
+              <span class="cross">✗</span>
+              <span>Notes and ideas scattered across 12 apps</span>
+            </div>
+            <div class="compare-item">
+              <span class="cross">✗</span>
+              <span>Forgot to follow up with that lead again</span>
+            </div>
+            <div class="compare-item">
+              <span class="cross">✗</span>
+              <span>Research rabbit holes that eat your whole morning</span>
+            </div>
+            <div class="compare-item">
+              <span class="cross">✗</span>
+              <span>Repeating the same admin work every single week</span>
+            </div>
+          </div>
+
+          <div class="compare-divider">
+            <span>→</span>
+            <span>VAI</span>
+            <span>→</span>
+          </div>
+
+          <div class="compare-col after-col">
+            <h3>After</h3>
+            <div class="compare-item">
+              <span class="tick">✓</span>
+              <span>I handle the 3-hour task. You review. Done.</span>
+            </div>
+            <div class="compare-item">
+              <span class="tick">✓</span>
+              <span>Everything organized in one place, always up to date</span>
+            </div>
+            <div class="compare-item">
+              <span class="tick">✓</span>
+              <span>I send the follow-up. You stay warm with clients.</span>
+            </div>
+            <div class="compare-item">
+              <span class="tick">✓</span>
+              <span>I do the research and send you a clean 5-point brief</span>
+            </div>
+            <div class="compare-item">
+              <span class="tick">✓</span>
+              <span>Recurring admin runs on autopilot. You focus on growth.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section" id="cta">
+      <div class="container">
+        <span class="section-kicker">Still here?</span>
+        <h2>You clearly need this.<br />Let's talk.</h2>
+        <p>
+          If you've read this far and thought "shit, I actually need this" — that's the
+          right instinct. The next step is simple.
+        </p>
+        <a href="mailto:vai@jointimeback.com" class="btn-p btn-main">
+          ⚡ Talk to VAI — vai@jointimeback.com
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      VAI · vai@jointimeback.com · meetvai.com/3
+    </footer>
+  </body>
+</html>
